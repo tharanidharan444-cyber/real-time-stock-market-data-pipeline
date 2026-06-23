@@ -1,0 +1,20 @@
+import psycopg2
+
+conn = psycopg2.connect(
+    host="localhost",
+    database="stocks",
+    user="postgres",
+    password="password"
+)
+
+cursor = conn.cursor()
+
+cursor.execute("""
+INSERT INTO stock_prices
+(stock_symbol, stock_price, event_time)
+VALUES ('AAPL', 185.50, NOW())
+""")
+
+conn.commit()
+cursor.close()
+conn.close()
