@@ -18,3 +18,11 @@ VALUES ('AAPL', 185.50, NOW())
 conn.commit()
 cursor.close()
 conn.close()
+
+alert conditions
+
+if current_price > previous_price * 1.05:
+    alert = "PRICE SPIKE"
+
+if current_price < previous_price * 0.95:
+    alert = "PRICE DROP"
